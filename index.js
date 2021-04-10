@@ -1,4 +1,5 @@
 const express = require('express');
+const { dbConnection } = require('./database/config');
 
 require('dotenv').config();
 
@@ -8,12 +9,15 @@ const app = express();
 //DIRECTORIO PUBLICO
 app.use(express.static('public'));
 
+//Parceo de data request a json
+app.use( express.json() );
+
+//Conexion a la base de datos
+dbConnection();
+
 //RUTAS
-app.get('/', (req, res) =>{
-    res.json({
-        ok:true
-    })
-});
+/* rutas para autenticacion de usuario */
+app.use('/api/auth', require('./routes/auth') );
 
 
 //Escucha peticiones
