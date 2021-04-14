@@ -19,6 +19,9 @@ dbConnection();
 /* rutas para autenticacion de usuario */
 app.use('/api/auth', require('./routes/auth') );
 
+// ruta para administracion de redes sociales
+app.use('/api/social', require('./routes/social') );
+
 
 //Escucha peticiones
 app.listen( process.env.PORT, () => {
