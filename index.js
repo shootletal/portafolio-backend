@@ -22,6 +22,9 @@ app.use('/api/auth', require('./routes/auth') );
 // ruta para administracion de redes sociales
 app.use('/api/social', require('./routes/social') );
 
+// ruta administracion de portafolio
+app.use('/api/portafolio', require('./routes/portafolio') );
+
 
 //Escucha peticiones
 app.listen( process.env.PORT, () => {
